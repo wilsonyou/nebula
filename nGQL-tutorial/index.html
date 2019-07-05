@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Nebula Graph">
       
       
-        <link rel="canonical" href="https://amber1990zhang.github.io/test-repo/nGQL-tutorial/">
+        <link rel="canonical" href="https://vesoft-inc.github.io/nebula/nGQL-tutorial/">
       
       
         <meta name="author" content="Nebula">
@@ -37,7 +37,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../images/favicon0.ico">
+      <link rel="shortcut icon" href="../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
@@ -117,7 +117,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://amber1990zhang.github.io/test-repo/" title="Nebula Graph Docs" class="md-header-nav__button md-logo">
+        <a href="https://vesoft-inc.github.io/nebula/" title="Nebula Graph Docs" class="md-header-nav__button md-logo">
           
             <i class="md-icon">library_books</i>
           
@@ -207,7 +207,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://amber1990zhang.github.io/test-repo/" title="Nebula Graph Docs" class="md-nav__button md-logo">
+    <a href="https://vesoft-inc.github.io/nebula/" title="Nebula Graph Docs" class="md-nav__button md-logo">
       
         <i class="md-icon">library_books</i>
       
@@ -369,6 +369,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#syntax-norms" title="Syntax norms" class="md-nav__link">
+    Syntax norms
+  </a>
+  
+</li>
+      
       
       
       
@@ -496,6 +503,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#syntax-norms" title="Syntax norms" class="md-nav__link">
+    Syntax norms
+  </a>
+  
+</li>
+      
       
       
       
@@ -551,9 +565,13 @@ $storage_ip2:$storage_port2,...
 
 
 <p><strong>Note:</strong>
-Replace the $storage_ip and $storage_port here according to the local_ip and port in nebula-storaged.conf. Separate the hosts by comma.</p>
+Replace the $storage_ip and $storage_port here according to the local_ip and port in nebula-storaged.conf. Separate the hosts by comma. For example:</p>
+<div class="codehilite"><pre><span></span>ADD HOSTS 192.168.8.5:65500
+</pre></div>
+
+
 <ul>
-<li>Show active hosts</li>
+<li>Show hosts</li>
 </ul>
 <div class="codehilite"><pre><span></span>SHOW HOSTS
 =============================
@@ -610,6 +628,11 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <li>List all the spaces available</li>
 </ul>
 <div class="codehilite"><pre><span></span>SHOW SPACES
+================
+|         Name |
+================
+| myspace_test |
+----------------
 </pre></div>
 
 
@@ -798,16 +821,43 @@ Following are some examples:</p>
 </pre></div>
 
 
-<!-- ## Syntax norms
-
-In order to be consistent with ourselves and other nGQL users, we advise
-you to follow these syntax norms:
-
-- KEYWORDS are in uppercase
-- node Aliases are in lower camel case (start with lowercase)
-- Labels are in upper camel case (start with uppercase
-- RELATIONS are in upper snake case (like IS_A)
-- Property names are in lower camel case -->
+<h2 id="syntax-norms">Syntax norms<a class="headerlink" href="#syntax-norms" title="Permanent link">&para;</a></h2>
+<p>In order to be consistent with ourselves and other nGQL users, we recommend
+you to follow these syntax norms:</p>
+<ul>
+<li>
+<p>KEYWORDS are in uppercase</p>
+</li>
+<li>
+<p>eg: <code>SHOW SPACES</code> the keywords here are all written in uppercase</p>
+</li>
+<li>
+<p>Tags are in upper camel case (start with uppercase）</p>
+</li>
+<li>
+<p>eg: <code>CREATE TAG ManageTeam</code> the tag name <strong>ManageTeam</strong> is written in upper
+  camel case</p>
+</li>
+<li>
+<p>EDGES are in upper snake case (like IS_A)</p>
+</li>
+<li>
+<p>eg: CREATE EDGE Play_for (name) the edge name <strong>Play_for</strong> is written in upper
+   snake case</p>
+</li>
+<li>
+<p>Property names are in lower camel case</p>
+</li>
+<li>
+<p>eg: inService</p>
+</li>
+</ul>
+<p>| Graph entity  | Recommended style | Example |
+  |:-: | :-: | :-: |:-: |
+  |Key words | Upper case   | SHOW SPACES     |
+  |Vertex tags | Upper camel case, beginning with an upper-case character   | ManageTeam   |
+  |Edges | Upper snake case, beginning with an upper-case character   | Play_for   |
+  |Property names | Lower camel case, beginning with a lower-case character   | inService   |</p>
                 
                   
                 

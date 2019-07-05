@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Nebula Graph">
       
       
-        <link rel="canonical" href="https://amber1990zhang.github.io/test-repo/get-started/">
+        <link rel="canonical" href="https://vesoft-inc.github.io/nebula/get-started/">
       
       
         <meta name="author" content="Nebula">
@@ -37,7 +37,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../images/favicon0.ico">
+      <link rel="shortcut icon" href="../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
@@ -117,7 +117,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://amber1990zhang.github.io/test-repo/" title="Nebula Graph Docs" class="md-header-nav__button md-logo">
+        <a href="https://vesoft-inc.github.io/nebula/" title="Nebula Graph Docs" class="md-header-nav__button md-logo">
           
             <i class="md-icon">library_books</i>
           
@@ -207,7 +207,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://amber1990zhang.github.io/test-repo/" title="Nebula Graph Docs" class="md-nav__button md-logo">
+    <a href="https://vesoft-inc.github.io/nebula/" title="Nebula Graph Docs" class="md-nav__button md-logo">
       
         <i class="md-icon">library_books</i>
       
@@ -476,6 +476,30 @@ By doing so, the developer can rest assured that the application will run on any
 
 
 <p>to get <code>nebula</code> image and <code>docker images</code> that can display images status.</p>
+<p>If the pulling is slow when pulling the image, configure a new mirror.
+1. Check if the <code>/etc/docker</code> folder exists, if not, create a new one with <code>mkdir -p /etc/docker</code>. Generally the folder will exist after Docker installation.
+2. Create the new file <code>daemon.json</code> with the following command</p>
+<div class="codehilite"><pre><span></span>tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39;
+{
+  &quot;registry-mirrors&quot;: [
+    &quot;https://dockerhub.azk8s.cn&quot;,
+    &quot;https://reg-mirror.qiniu.com&quot;
+  ]
+}
+EOF
+</pre></div>
+
+
+<p>Or create the new file with <code>vi /etc/docker/daemon.json</code>, then add the following content</p>
+<div class="codehilite"><pre><span></span>{
+  &quot;registry-mirrors&quot;: [
+    &quot;https://dockerhub.azk8s.cn&quot;,
+    &quot;https://reg-mirror.qiniu.com&quot;
+  ]
+}
+</pre></div>
+
+
 <hr />
 <h3 id="step-2-startup-nebula-graph">Step 2 Startup Nebula Graph<a class="headerlink" href="#step-2-startup-nebula-graph" title="Permanent link">&para;</a></h3>
 <p>When <code>nebula</code> image is ready, run</p>
@@ -653,33 +677,6 @@ INSERT EDGE like(likeness) VALUES -8379929135833483044 -&gt; 6663720087669302163
 
 INSERT EDGE serve(start_year, end_year) VALUES -8379929135833483044 -&gt; 868103967282670864:(2002, 2010)
 </pre></div>
-
-
-<!-- If the pulling is slow when pulling the image, configure a new mirror.
-1. Check if the `/etc/docker` folder exists, if not, create a new one with `mkdir -p /etc/docker`. Generally the folder will exist after Docker installation.
-2. Create the new file `daemon.json` with the following command
-
-<div class="codehilite"><pre><span></span>tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39;
-{
-  &quot;registry-mirrors&quot;: [
-    &quot;https://dockerhub.azk8s.cn&quot;,
-    &quot;https://reg-mirror.qiniu.com&quot;
-  ]
-}
-EOF
-</pre></div>
-
-
-Or create the new file with `vi /etc/docker/daemon.json`, then add the following content
-
-```
-{
-  "registry-mirrors": [
-    "https://dockerhub.azk8s.cn",
-    "https://reg-mirror.qiniu.com"
-  ]
-}
-``` -->
                 
                   
                 

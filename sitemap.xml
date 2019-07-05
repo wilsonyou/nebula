@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://amber1990zhang.github.io/test-repo/</loc>
+     <loc>https://vesoft-inc.github.io/nebula/</loc>
      <lastmod>2019-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://amber1990zhang.github.io/test-repo/get-started/</loc>
+     <loc>https://vesoft-inc.github.io/nebula/get-started/</loc>
      <lastmod>2019-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://amber1990zhang.github.io/test-repo/nGQL-tutorial/</loc>
+     <loc>https://vesoft-inc.github.io/nebula/nGQL-tutorial/</loc>
      <lastmod>2019-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://amber1990zhang.github.io/test-repo/how-to-contribute/</loc>
+     <loc>https://vesoft-inc.github.io/nebula/how-to-contribute/</loc>
      <lastmod>2019-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://amber1990zhang.github.io/test-repo/developer-documentation-style-guide/</loc>
+     <loc>https://vesoft-inc.github.io/nebula/developer-documentation-style-guide/</loc>
      <lastmod>2019-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://amber1990zhang.github.io/test-repo/contribute-to-documentation/</loc>
+     <loc>https://vesoft-inc.github.io/nebula/contribute-to-documentation/</loc>
      <lastmod>2019-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
