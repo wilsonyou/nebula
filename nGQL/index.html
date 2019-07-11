@@ -1,0 +1,862 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Nebula Graph">
+      
+      
+        <link rel="canonical" href="http://docs.nebula-graph.io/nGQL/">
+      
+      
+        <meta name="author" content="Nebula">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>Nebula Graph Query Language (nGQL) - Nebula Graph Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#nebula-graph-query-language-ngql" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://docs.nebula-graph.io/" title="Nebula Graph Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">library_books</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Nebula Graph Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Nebula Graph Query Language (nGQL)
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/vesoft-inc/nebula/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    vesoft-inc/nebula
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Overview" class="md-tabs__link md-tabs__link--active">
+        Overview
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../nGQL-tutorial/" title="Nebula Reference Manual" class="md-tabs__link">
+          Nebula Reference Manual
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://docs.nebula-graph.io/" title="Nebula Graph Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">library_books</i>
+      
+    </a>
+    Nebula Graph Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/vesoft-inc/nebula/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    vesoft-inc/nebula
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../get-started/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Nebula Reference Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Nebula Reference Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nGQL-tutorial/" title="nGQL Query Language" class="md-nav__link">
+      nGQL Query Language
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../how-to-contribute/" title="Contribute to Nebula" class="md-nav__link">
+      Contribute to Nebula
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../developer-documentation-style-guide/" title="Developer documentation style guide" class="md-nav__link">
+      Developer documentation style guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../contribute-to-documentation/" title="Contribute to docs" class="md-nav__link">
+      Contribute to docs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-ngql" title="About nGQL" class="md-nav__link">
+    About nGQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goals" title="Goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite" title="Prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" title="Terminology" class="md-nav__link">
+    Terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-specification" title="Language Specification" class="md-nav__link">
+    Language Specification
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" title="General" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composition" title="Composition" class="md-nav__link">
+    Composition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types" title="Data Types" class="md-nav__link">
+    Data Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-conversion" title="Type Conversion" class="md-nav__link">
+    Type Conversion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-bnf" title="Common BNF" class="md-nav__link">
+    Common BNF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statements" title="Statements" class="md-nav__link">
+    Statements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choose-a-graph-space" title="Choose a graph space" class="md-nav__link">
+    Choose a graph space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-a-data-set" title="Return a data set" class="md-nav__link">
+    Return a data set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tag" title="Create a tag" class="md-nav__link">
+    Create a tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-a-tag-type" title="Modify a tag type" class="md-nav__link">
+    Modify a tag type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-an-edge-type" title="Create an edge type" class="md-nav__link">
+    Create an edge type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-an-edge-type" title="Modify an edge type" class="md-nav__link">
+    Modify an edge type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-vertices" title="Insert vertices" class="md-nav__link">
+    Insert vertices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-edges" title="Insert edges" class="md-nav__link">
+    Insert edges
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-a-vertex" title="Update a vertex" class="md-nav__link">
+    Update a vertex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-an-edge" title="Update an edge" class="md-nav__link">
+    Update an edge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traverse-the-graph" title="Traverse the graph" class="md-nav__link">
+    Traverse the graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search" title="Search" class="md-nav__link">
+    Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-match" title="Pattern match" class="md-nav__link">
+    Pattern match
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-reference" title="Property Reference" class="md-nav__link">
+    Property Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vesoft-inc/nebula/edit/master/docs/nGQL.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="nebula-graph-query-language-ngql">Nebula Graph Query Language (nGQL)<a class="headerlink" href="#nebula-graph-query-language-ngql" title="Permanent link">&para;</a></h1>
+<h2 id="about-ngql">About nGQL<a class="headerlink" href="#about-ngql" title="Permanent link">&para;</a></h2>
+<p><code>nGQL</code> is a declarative, textual query language like SQL, but for graphs. Unlike SQL, nGQL is all about expressing graph patterns. nGQL is a work in progress. We will add more features and further simplify the existing ones. There might be inconsistency between the syntax specs and implementation for the time being.</p>
+<h2 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Easy to learn</li>
+<li>Easy to understand</li>
+<li>To focus on the online queries, also to provide the foundation for the offline computation</li>
+</ul>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Syntax is close to SQL, but not exactly the same (Easy to learn)</li>
+<li>Expandable</li>
+<li>Case insensitive</li>
+<li>Support basic graph traverse</li>
+<li>Support pattern match</li>
+<li>Support aggregation</li>
+<li>Support graph mutation</li>
+<li>Support distributed transaction (future release)</li>
+<li>Statement composition, but <strong>NO</strong> statement embedding (Easy to read)</li>
+</ul>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Directed property graph with schema</li>
+</ul>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Graph Space</strong> : A physically isolated space for different graph</li>
+<li><strong>Tag</strong> : A label associated with a list of properties</li>
+<li>Each tag has a name (human readable string), and internally each tag will be assigned a 32-bit integer</li>
+<li>Each tag associates with a list of properties, each property has a name and a type</li>
+<li>There could be dependencies between tags. The dependency is a constrain, for instance, if tag S depends on tag T, then tag S cannot exist unless tag T exists</li>
+<li><strong>Vertex</strong> : A Node in the graph</li>
+<li>Each vertex has a unique 64-bit (signed integer) ID (<strong>VID</strong>)</li>
+<li>Each vertex can associate with multiple <strong>tags</strong></li>
+<li><strong>Edge</strong> : A Link between two vertices</li>
+<li>Each edge can be uniquely identified by a tuple <strong><src_vid, dst_vid, edge_type, rank></strong></li>
+<li><strong><em>Edge type (ET)</em></strong> is a human readable string, internally it will be assigned a 32-bit integer. The edge type decides the property list (schema) on the edge</li>
+<li><strong><em>Edge rank</em></strong> is an immutable user-assigned 64-bit signed integer. It affects the edge order between two vertices. The edge with a higher rank value comes first. When not specified, the default rank value is zero</li>
+<li>Each edge can only be of one type</li>
+<li><strong>Path</strong> : A <strong><em>non-forked</em></strong> connection with multiple vertices and edges between them</li>
+<li>The length of a path is the number of the edges on the path, which is one less than the number of vertices</li>
+<li>A path can be represented by a list of vertices, edge types, and rank. An edge is a special path with length==1
+ <code>&lt;vid, edge_type[:rank], vid, ...&gt;</code></li>
+</ul>
+<h2 id="language-specification">Language Specification<a class="headerlink" href="#language-specification" title="Permanent link">&para;</a></h2>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The entire set of statements can be categorized into three classes: <strong>query</strong>, <strong>mutation</strong>, and <strong>administration</strong></li>
+<li>Every statement can yield a data set as the result. Each data set contains a schema (column name and type) and multiple data rows</li>
+</ul>
+<h3 id="composition">Composition<a class="headerlink" href="#composition" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Statements could be composed in two ways:</li>
+<li>Statements could be piped together using operator "<strong>|</strong>", much like the pipe in the shell scripts. The result yielded from the previous statement could be redirected to the next statement as input</li>
+<li>More than one statements can be batched together, separated by "<strong>;</strong>". The result of the last statement (or a <span style="color:blue"><strong>RETURN</strong></span> statement is executed) will be returned as the result of the batch</li>
+</ul>
+<h3 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Simple type: <strong>vid</strong>, <strong>integer</strong> (int64), <strong>double</strong>, <strong>float</strong>, <strong>bool</strong>, <strong>string</strong>, <strong>path</strong>, <strong>timestamp</strong>, <strong>year</strong>, <strong>month</strong> (year/month), <strong>date</strong>, <strong>datetime</strong></li>
+<li><strong>vid</strong> : 64-bit signed integer, representing a vertex ID</li>
+<li>List of simple types, such as <strong>integer[]</strong>, <strong>double[]</strong>, <strong>string[]</strong></li>
+<li><strong>Map</strong>: A list of KV pairs. The key must be a <strong>string</strong>, the value must be the same type for the given map</li>
+<li><strong>Object</strong> (future release??): A list of KV pairs. The key mush be a <strong>string</strong>, the value can be any simple type</li>
+<li><strong>Tuple List</strong>: <em>This is only used for return values</em>. It's composed by both meta data and data (multiple rows). The meta data includes the column names and their types.</li>
+</ul>
+<h3 id="type-conversion">Type Conversion<a class="headerlink" href="#type-conversion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A simple typed value can be implicitly converted into a list</li>
+<li>A list can be implicitly converted into a one-column tuple list</li>
+<li>"&lt;type>_list" can be used as the column name</li>
+</ul>
+<h3 id="common-bnf">Common BNF<a class="headerlink" href="#common-bnf" title="Permanent link">&para;</a></h3>
+<p><simple\_type> ::= <strong>vid</strong> | <strong>integer</strong> | <strong>double</strong> | <strong>float</strong> | <strong>bool</strong> | <strong>string</strong> | <strong>path</strong> | <strong>timestamp</strong> | <strong>year</strong> | <strong>month</strong> | <strong>date</strong> | <strong>datetime</strong></p>
+<p><composite_type> ::=</p>
+<p><type\> ::= <simple_type> | <composite\_type></p>
+<p><vid\_list> ::= <strong>vid</strong> (, <strong>vid</strong>)* | "{" <strong>vid</strong> (, <strong>vid</strong>)* "}"</p>
+<p>&lt;label> ::= [:alpha] ([:alnum:] | "_")*</p>
+<p><underscore\_label> ::= ("_")* &lt;label></p>
+<p><field\_name> ::= &lt;label></p>
+<p><field\_def\_list> ::= <field\_def> (, <field\_def>)*</p>
+<p><field\_def> ::= <field_name>:&lt;type></p>
+<p><tuple\_list\_decl> ::= <tuple\_schema> ":" <tuple\_data></p>
+<p><tuple\_schema> ::= <field\_def\_list></p>
+<p><tuple\_data> ::= &lt;tuple> (, &lt;tuple>)* | "{" &lt;tuple> (, &lt;tuple>)* "}"</p>
+<p>&lt;tuple> ::= "(" <strong>VALUE</strong> (, <strong>VALUE</strong>)* ")"</p>
+<p>&lt;var> ::= "$" &lt;label></p>
+<h3 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h3>
+<h4 id="choose-a-graph-space">Choose a graph space<a class="headerlink" href="#choose-a-graph-space" title="Permanent link">&para;</a></h4>
+<p>Nebula supports multiple graph spaces. Data in different graph spaces are physically isolated. Before executing a query, a graph space needs to be selected using the following statement</p>
+<p><span style="color:blue"><strong>USE</strong></span>  <graphspace_name></p>
+<h4 id="return-a-data-set">Return a data set<a class="headerlink" href="#return-a-data-set" title="Permanent link">&para;</a></h4>
+<p>Simply return a single value or a data set</p>
+<p><span style="color:blue"><strong>RETURN</strong></span> <return\_value\_decl></p>
+<p><return\_value\_decl> ::= <strong>vid</strong> | <vid\_list> | <tuple\_list\_decl> | &lt;var></p>
+<h4 id="create-a-tag">Create a tag<a class="headerlink" href="#create-a-tag" title="Permanent link">&para;</a></h4>
+<p>The following statement defines a <strong>new</strong> tag</p>
+<p><span style="color:blue"><strong>CREATE TAG</strong></span> <tag\_name> (<prop\_def\_list>)</p>
+<p><tag\_name> ::= <label\> <br>
+<prop\_def\_list> ::= <prop\_def>+ <br>
+<prop\_def> ::= <prop\_name>,<type\> <br>
+<prop\_name> ::= <label\> <br></p>
+<h4 id="modify-a-tag-type">Modify a tag type<a class="headerlink" href="#modify-a-tag-type" title="Permanent link">&para;</a></h4>
+<h4 id="create-an-edge-type">Create an edge type<a class="headerlink" href="#create-an-edge-type" title="Permanent link">&para;</a></h4>
+<p>The following statement defines a <strong>new</strong> edge type</p>
+<p><span style="color:blue"><strong>CREATE EDGE</strong></span> <edge\_type\_name> (<prop\_def\_list>)</p>
+<p><edge\_type\_name> := &lt;label></p>
+<h4 id="modify-an-edge-type">Modify an edge type<a class="headerlink" href="#modify-an-edge-type" title="Permanent link">&para;</a></h4>
+<h4 id="insert-vertices">Insert vertices<a class="headerlink" href="#insert-vertices" title="Permanent link">&para;</a></h4>
+<p>The following statement inserts one or more vertices</p>
+<p><span style="color:blue"><strong>INSERT VERTEX</strong></span> [<span style="color:blue"><strong>NO OVERWRITE</strong></span>] <tag\_list> <span style="color:blue"><strong>VALUES</strong></span> <vertex\_list> <br/></p>
+<p><tag\_list> ::= <tag\_name>(<prop\_list>) (, <tag\_name>(<prop\_list>))* <br/>
+<vertex\_list> ::= <vertex\_id>:(<prop\_value\_list>) (, <vertex\_id>:(<prop\_value\_list>))* <br/>
+<vertex\_id> ::= <strong>vid</strong> <br/>
+<prop\_list> ::= <prop\_name> (, <prop\_name>)* <br/>
+<prop\_value\_list> ::= <strong>VALUE</strong> (, <strong>VALUE</strong>)* <br/></p>
+<h4 id="insert-edges">Insert edges<a class="headerlink" href="#insert-edges" title="Permanent link">&para;</a></h4>
+<p>The following statement inserts one or more edges</p>
+<p><span style="color:blue"><strong>INSERT EDGE</strong></span> [<span style="color:blue"><strong>NO OVERWRITE</strong></span>] <edge\_type\_name> [(<prop\_list>)] <span style="color:blue"><strong>VALUES</strong></span> (<edge\_value>)+</p>
+<p>edge_value ::= <vertex\_id> -&gt; <vertex\_id> [@ <weight\>] : <prop\_value\_list></p>
+<h4 id="update-a-vertex">Update a vertex<a class="headerlink" href="#update-a-vertex" title="Permanent link">&para;</a></h4>
+<p>The following statement updates a vertex</p>
+<p><span style="color:blue"><strong>UPDATE VERTEX</strong></span>  <vertex\_id>
+<span style="color:blue"><strong>SET</strong></span> \<update\_decl\>
+[<span style="color:blue"><strong>WHERE</strong></span> <conditions\>]
+[<span style="color:blue"><strong>YIELD</strong></span> <field\_list>]</p>
+<p><update\_decl> ::= <update\_form1> | <update\_form2> <br>
+<update\_form1> ::= <prop\_name> = <expression\> {,<prop\_name> = <expression\>}+ <br>
+<update\_form2> ::= (<prop\_list>) = (<value\_list>) | (<prop\_list>) = <var\> <br></p>
+<h4 id="update-an-edge">Update an edge<a class="headerlink" href="#update-an-edge" title="Permanent link">&para;</a></h4>
+<p>The following statement updates an edge</p>
+<p><span style="color:blue"><strong>UPDATE EDGE</strong></span>  <vertex\_id> -&gt; <vertex\_id> [@<weight\>] <span style="color:blue"><strong>OF</strong></span> <edge\_type>
+<span style="color:blue"><strong>SET</strong></span> <update\_decl>
+[<span style="color:blue"><strong>WHERE</strong></span> <conditions\>]
+[<span style="color:blue"><strong>YIELD</strong></span> <field\_list>]</p>
+<h4 id="traverse-the-graph">Traverse the graph<a class="headerlink" href="#traverse-the-graph" title="Permanent link">&para;</a></h4>
+<p>Navigate from given vertices to their neighbors according to the given conditions. It returns either a list of vertex IDs, or a list of tuples</p>
+<p><span style="color:blue"><strong>GO</strong></span>
+[<steps\_decl> <span style="color:blue"><strong>STEPS</strong></span>]
+<span style="color:blue"><strong>FROM</strong></span> <data\_set\_decl>
+[<span style="color:blue"><strong>OVER</strong></span> [<span style="color:blue"><strong>REVERSELY</strong></span>] <edge\_type\_decl>]
+[<span style="color:blue"><strong>WHERE</strong></span> <filter\_list>]
+[<span style="color:blue"><strong>YIELD</strong></span> <field\_list>]</p>
+<p><steps\_decl> ::= <strong>integer</strong> | <strong>integer</strong> <span style="color:blue"><strong>TO</strong></span> <strong>integer</strong> | <span style="color:blue"><strong>UPTO</strong></span> <strong>integer</strong> <br>
+<data\_set\_decl> ::= [data_set] [[<span style="color:blue"><strong>AS</strong></span>] <label\>]<br/>
+<data\_set> ::= <strong>vid</strong> | <vid\_list> | <tuple\_list\_decl> | <var\><br/>
+<edge\_type\_decl> ::= <edge\_type\_list> [<span style="color:blue"><strong>AS</strong></span> <label\>]
+<edge\_type\_list> ::= <edge\_type> {, <edge\_type>}* <br>
+<edge\_type> ::= <label\> <br></p>
+<p><filter\_list> ::= <filter\> {<span style="color:blue"><strong>AND</strong></span> | <span style="color:blue"><strong>OR</strong></span> <filter\>}\* <br>
+<filter\> ::= <expression\> <span style="color:blue"><strong>&gt;</strong></span> | <span style="color:blue"><strong>&gt;=</strong></span> | <span style="color:blue"><strong>&lt;</strong></span> | <span style="color:blue"><strong>&lt;=</strong></span> | <span style="color:blue"><strong>==</strong></span> | <span style="color:blue"><strong>!=</strong></span> <expression\> | <expression\> <span style="color:blue"><strong>IN</strong></span> <value\_list\> <br>
+<field\_list> ::= <return\_field> {, <return\_field>}* <br>
+<return\_field> ::= <expression\> [<span style="color:blue"><strong>AS</strong></span> <label\>] <br></p>
+<p><span style="color:blue"><strong>WHERE</strong></span> clause only applies to the results that are going to be returned. It will not be applied to the intermediate results (See the detail description of the <span style="color:blue"><strong>STEP[S]</strong></span> clause)</p>
+<p>When <span style="color:blue"><strong>STEP[S]</strong></span> clause is skipped, it implies <strong>one step</strong></p>
+<p>When going out for one step from the given vertex, all neighbors will be checked against the <span style="color:blue"><strong>WHERE</strong></span> clause, only results satisfied the <span style="color:blue"><strong>WHERE</strong></span> clause will be returned</p>
+<p>When going out for more than one step, <span style="color:blue"><strong>WHERE</strong></span> clause will only be applied to the final results. It will not be applied to the intermediate results. Here is an example</p>
+<div class="codehilite"><pre><span></span>GO 2 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1&quot;
+</pre></div>
+
+
+<p>Obviously, you will probably guess the meaning of the query is to get all my fof (friend of friend) whose birthday is after 1988/1/1. You are absolutely right. We will not apply the filter to my friends (in the first step)</p>
+<p>Here is another example</p>
+<div class="codehilite"><pre><span></span>GO UPTO 3 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1/&quot;
+</pre></div>
+
+
+<p>This query tries to find any friend of me whose birthday is after 1988/1/1. If it finds at least one, it will return all the results. If it cannot find any, it will check my friends of friends to see if anyone's birthday is after 1988/1/1. It will return all the non-empty results, otherwise it will check my friends of friends of friends.</p>
+<p>So, similarly, next query tries to find anyone whose birthday is after 1988/1/1 starting from my 3-hop friends, and finishing at my 5-hop friends</p>
+<div class="codehilite"><pre><span></span>GO 3 TO 5 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1/&quot;
+</pre></div>
+
+
+<h4 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h4>
+<p>Following statements looks for vertices or edges that match certain conditions</p>
+<p><span style="color:blue"><strong>FIND VERTEX</strong></span>
+<span style="color:blue"><strong>WHERE</strong></span> <filter\_list>
+[<span style="color:blue"><strong>YIELD</strong></span> <field\_list>]</p>
+<p><span style="color:blue"><strong>FIND EDGE</strong></span>
+<span style="color:blue"><strong>WHERE</strong></span> <filter\_list>
+[<span style="color:blue"><strong>YIELD</strong></span> <field\_list>]</p>
+<h4 id="pattern-match">Pattern match<a class="headerlink" href="#pattern-match" title="Permanent link">&para;</a></h4>
+<p>The following statement does a pattern match, and can return tuple list or paths</p>
+<p><span style="color:blue"><strong>MATCH</strong></span>
+<regular\_path\_expression>
+[<span style="color:blue"><strong>FROM</strong></span> <data\_set\_decl>]
+[<span style="color:blue"><strong>WHERE</strong></span> <filter\_list>]
+[<span style="color:blue"><strong>YIELD</strong></span> <field\_list>]</p>
+<h3 id="property-reference">Property Reference<a class="headerlink" href="#property-reference" title="Permanent link">&para;</a></h3>
+<p>It's common to refer a property in the statement, such as in <span style="color:blue"><strong>WHERE</strong></span> clause and <span style="color:blue"><strong>YIELD</strong></span> clause. In nGQL, the reference to a property is defined as</p>
+<p><property_ref> ::= <object\> "." <prop\_name> <br>
+<object\> ::= <alias\_name> | <alias\_with\_tag> | <var\> <br>
+<alias\_name> ::= <label\> <br>
+<alias\_with\_tag> ::= <alias\_name> '[' <tag\_name> "]" <br></p>
+<p>&lt;var> always starts with "$". There are two special variables: $- and $$.</p>
+<p>$- refers to the input stream, while $$ refers to the destination objects</p>
+<p>All property names start with a letter. There are a few system property names starting with "_". All properties names starting with "_" are reserved.</p>
+<p>Here are some built-in properties:
+<br/>_id : Vertex id
+<br/>_type : Edge type
+<br/>_src : Source ID of the edge
+<br/>_dst : Destination ID of the edge
+<br/>_rank : Edge rank unuber</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Nebula Graph
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/vesoft-inc/nebula" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.weibo.com/u/7122684542?is_hot=1" class="md-footer-social__link fa fa-weibo"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
