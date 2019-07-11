@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://vesoft-inc.github.io/nebula/</loc>
-     <lastmod>2019-07-05</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://vesoft-inc.github.io/nebula/get-started/</loc>
-     <lastmod>2019-07-05</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://vesoft-inc.github.io/nebula/nGQL-tutorial/</loc>
-     <lastmod>2019-07-05</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://vesoft-inc.github.io/nebula/how-to-contribute/</loc>
-     <lastmod>2019-07-05</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://vesoft-inc.github.io/nebula/developer-documentation-style-guide/</loc>
-     <lastmod>2019-07-05</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://vesoft-inc.github.io/nebula/contribute-to-documentation/</loc>
-     <lastmod>2019-07-05</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
 </urlset>
