@@ -647,16 +647,23 @@ Starting MetaService StorageService and GraphService ...
 
 <p>to display the services' running status.</p>
 <p>Please make sure the services are working.</p>
-<p><code>bin/nebula</code> is a <code>console</code> which can be used to insert and query data.</p>
-<p><code>--port</code> is used for specifying the graph server port and the default value is <code>3699</code>.</p>
-<p><code>-u</code> and <code>-p</code> are used to specify the user name and password, <code>user</code> and <code>password</code> are the default authority.</p>
-<p>Run</p>
+<!-- `bin/nebula` is a `console` which can be used to insert and query data.
+
+`--port` is used for specifying the graph server port and the default value is `3699`.
+
+`-u` and `-p` are used to specify the user name and password, `user` and `password` are the default authority.
+
+Run
+
+
 <div class="codehilite"><pre><span></span> &gt; bin/nebula --port=3699 -u=user -p=password
 </pre></div>
 
 
-<p>to connect to the graph server.</p>
-<p>One easier way to start console is to run</p>
+
+to connect to the graph server. -->
+
+<p>To connect to the graph server, run</p>
 <div class="codehilite"><pre><span></span>&gt; ./start-console.sh
 
 Welcome to Nebula Graph (Version 0.1)
@@ -864,8 +871,6 @@ nebula&gt; INSERT VERTEX student(name, age, gender) VALUES 201:(&quot;Mike&quot;
 nebula&gt; INSERT VERTEX student(name, age, gender) VALUES 202:(&quot;Jane&quot;, 17, &quot;female&quot;);
 nebula&gt; INSERT VERTEX course(name, credits),building(name) VALUES 101:(&quot;Math&quot;, 3, &quot;No5&quot;);
 nebula&gt; INSERT VERTEX course(name, credits),building(name) VALUES 102:(&quot;English&quot;, 6, &quot;No11&quot;);
-=======
-nebula&gt; CREATE space myspace(partition_num=1, replica_factor=1)
 </pre></div>
 
 
@@ -895,7 +900,7 @@ nebula&gt; INSERT EDGE like(likeness) VALUES 201 -&gt; 202:(93.2);
 
 
 <p>Q2. Find the vertexes that 201 likes, whose age are greater than 17. Return their name, age and gender, and alias the columns as Friend, Age and Gender, respectively.</p>
-<div class="codehilite"><pre><span></span>nebula&gt; GO FROM 201 OVER like WHERE $$[student].age &gt;= 17 YIELD $$[student].name AS Friend, $$[student].age AS Age, $$[student].gender AS Gender;
+<div class="codehilite"><pre><span></span>nebula&gt; GO FROM 201 OVER like WHERE $$.student.age &gt;= 17 YIELD $$.student.name AS Friend, $$.student.age AS Age, $$.student.gender AS Gender;
 
 =========================
 | Friend | Age | Gender |
@@ -910,7 +915,7 @@ nebula&gt; INSERT EDGE like(likeness) VALUES 201 -&gt; 202:(93.2);
 <p><code>$$</code> indicates the target vertex.</p>
 <p>Q3. Find the courses that the vertices liked by 201 select and their grade.</p>
 <div class="codehilite"><pre><span></span>-- By pipe
-nebula&gt; GO FROM 201 OVER like | GO FROM $-.id OVER select YIELD $^[student].name AS Student, $$[course].name AS Course, select.grade AS Grade;
+nebula&gt; GO FROM 201 OVER like | GO FROM $-.id OVER select YIELD $^.student.name AS Student, $$.course.name AS Course, select.grade AS Grade;
 
 =============================
 | Student |  Course | Grade |
@@ -923,7 +928,7 @@ nebula&gt; GO FROM 201 OVER like | GO FROM $-.id OVER select YIELD $^[student].n
 -----------------------------
 
 -- By temporary variable
-nebula&gt; $a=GO FROM 201 OVER like; GO FROM $a.id OVER select YIELD $^[student].name AS Student, $$[course].name AS Course, select.grade AS Grade;
+nebula&gt; $a=GO FROM 201 OVER like; GO FROM $a.id OVER select YIELD $^.student.name AS Student, $$.course.name AS Course, select.grade AS Grade;
 
 =============================
 | Student |  Course | Grade |
