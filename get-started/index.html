@@ -913,7 +913,7 @@ nebula&gt; INSERT EDGE like(likeness) VALUES 201 -&gt; 202:(93.2);
 <p><code>YIELD</code> specifies what values or results you might want to return from query.</p>
 <p><code>$^</code> represents the source vertex.</p>
 <p><code>$$</code> indicates the target vertex.</p>
-<p>Q3. Find the courses that the vertices liked by 201 select and their grade.</p>
+<p>Q3. Find the selected courses and corresponding grades of students liked by 201.</p>
 <div class="codehilite"><pre><span></span>-- By pipe
 nebula&gt; GO FROM 201 OVER like | GO FROM $-.id OVER select YIELD $^.student.name AS Student, $$.course.name AS Course, select.grade AS Grade;
 

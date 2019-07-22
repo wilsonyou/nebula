@@ -410,6 +410,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#how-to-get-3rd-party-libraries" title="How to get 3rd-party Libraries" class="md-nav__link">
+    How to get 3rd-party Libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-build" title="How to build" class="md-nav__link">
+    How to build
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -455,9 +469,49 @@
 <li>libunwind</li>
 <li>ncurses</li>
 <li>readline</li>
+<li>bzip2</li>
+<li>doubleconversion</li>
+<li>fatal</li>
+<li>fbthrift</li>
+<li>folly</li>
+<li>gflags</li>
+<li>glog</li>
+<li>googletest</li>
+<li>jemalloc</li>
+<li>libevent</li>
+<li>mstch</li>
+<li>proxygen</li>
+<li>rocksdb</li>
+<li>snappy</li>
+<li>wangle</li>
+<li>zlib</li>
+<li>zstd</li>
 </ul>
-<p>Currently, we using <code>git-lfs</code> to manage the 3rd-party libraries. So make sure <code>git-lfs</code> have been installed before building the source code.</p>
-<p>Please see <a href="https://github.com/git-lfs/git-lfs/blob/master/INSTALLING.md">INSTALLING.md</a> for more details.</p>
+<h3 id="how-to-get-3rd-party-libraries">How to get 3rd-party Libraries<a class="headerlink" href="#how-to-get-3rd-party-libraries" title="Permanent link">&para;</a></h3>
+<h3 id="how-to-build">How to build<a class="headerlink" href="#how-to-build" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<ol>
+<li>create build dir : <code>cd nebula &amp;&amp; mkdir build &amp;&amp; cd build</code></li>
+</ol>
+</li>
+<li>
+<ol>
+<li>generate makefile : <code>cmake ..</code></li>
+</ol>
+</li>
+<li>
+<ol>
+<li>make : <code>make or make -j${threadnum}</code></li>
+</ol>
+</li>
+<li>
+<ol>
+<li>install: <code>make install</code></li>
+</ol>
+</li>
+<li>notes : the default install dir is <strong>/usr/local/</strong>, if you want to change the dir, on step 2, your command can be <code>cmake -DCMAKE_INSTALL_PREFIX=$your_nebula_install_dir ..</code> </li>
+</ul>
                 
                   
                 
