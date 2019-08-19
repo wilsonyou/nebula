@@ -1,33 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>http://docs.nebula-graph.io/</loc>
-     <lastmod>2019-07-22</lastmod>
+     <loc>http://docs.nebula-graph.io/cn-doc/cn-README/</loc>
+     <lastmod>2019-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.nebula-graph.io/get-started/</loc>
-     <lastmod>2019-07-22</lastmod>
+     <loc>http://docs.nebula-graph.io/cn-doc/cn-get-started/</loc>
+     <lastmod>2019-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.nebula-graph.io/nGQL-tutorial/</loc>
-     <lastmod>2019-07-22</lastmod>
+     <loc>http://docs.nebula-graph.io/cn-doc/cn-how-to-contribute/</loc>
+     <lastmod>2019-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.nebula-graph.io/how-to-contribute/</loc>
-     <lastmod>2019-07-22</lastmod>
+     <loc>http://docs.nebula-graph.io/cn-doc/cn-contribute-to-documentation/</loc>
+     <lastmod>2019-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.nebula-graph.io/developer-documentation-style-guide/</loc>
-     <lastmod>2019-07-22</lastmod>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/Language_Structure/Comment_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://docs.nebula-graph.io/contribute-to-documentation/</loc>
-     <lastmod>2019-07-22</lastmod>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/Language_Structure/Identifier_Case_Sensitivity/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/Language_Structure/Property_Reference/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/Language_Structure/Schema_Object_Names/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/Language_Structure/Statement_Composition/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Administration_Statements/cn_Account_Management_Statements/Drop_User_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Administration_Statements/cn_Configuration_Statements/cn_Variables_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/cn_Alter_Tag_Edge_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Create_Space_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Create_Tag_Edge_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Drop_Edge_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Drop_Space_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Drop_Tag_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Show_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/fetch_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/Go_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/INSERT_VERTEX_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/PIPE_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/WHERE_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://docs.nebula-graph.io/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/YIELD_Syntax/</loc>
+     <lastmod>2019-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

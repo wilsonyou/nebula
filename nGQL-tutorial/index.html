@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -16,26 +16,26 @@
         <link rel="canonical" href="http://docs.nebula-graph.io/nGQL-tutorial/">
       
       
-        <meta name="author" content="Nebula">
+        <meta name="author" content="Nebula Graph">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="lang:clipboard.copy" content="复制">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+        <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     
       
@@ -111,7 +109,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#ngql-query-language" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -148,7 +146,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -158,7 +156,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -176,7 +174,7 @@
 
   
 
-<a href="https://github.com/vesoft-inc/nebula/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/vesoft-inc/nebula/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -202,34 +200,39 @@
       
         
 
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
-      
-        
-  <li class="md-tabs__item">
-    
-      <a href=".." title="Overview" class="md-tabs__link">
-        Overview
-      </a>
-    
-  </li>
-
-      
-        
       
         
   
   
     <li class="md-tabs__item">
       
-        <a href="./" title="Nebula Reference Manual" class="md-tabs__link md-tabs__link--active">
-          Nebula Reference Manual
+        <a href="../cn-doc/cn-README/" title="Home" class="md-tabs__link">
+          Home
         </a>
       
     </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../cn-manual-doc/Language_Structure/Comment_Syntax/" title="Manual" class="md-tabs__link">
+          Manual
+        </a>
+      
+    </li>
+  
+
   
 
       
@@ -260,7 +263,7 @@
 
   
 
-<a href="https://github.com/vesoft-inc/nebula/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/vesoft-inc/nebula/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -281,42 +284,16 @@
       
 
 
-  <li class="md-nav__item">
-    <a href=".." title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
+  <li class="md-nav__item md-nav__item--nested">
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../get-started/" title="Quickstart" class="md-nav__link">
-      Quickstart
-    </a>
-  </li>
-
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
     
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
-    
-    <label class="md-nav__link" for="nav-3">
-      Nebula Reference Manual
+    <label class="md-nav__link" for="nav-1">
+      Home
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Nebula Reference Manual
+      <label class="md-nav__title" for="nav-1">
+        Home
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -325,97 +302,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        nGQL Query Language
-      </label>
-    
-    <a href="./" title="nGQL Query Language" class="md-nav__link md-nav__link--active">
-      nGQL Query Language
+  <li class="md-nav__item">
+    <a href="../cn-doc/cn-README/" title="Overview" class="md-nav__link">
+      Overview
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-attributes-of-ngql" title="Key attributes of nGQL" class="md-nav__link">
-    Key attributes of nGQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ngql-syntax" title="nGQL Syntax" class="md-nav__link">
-    nGQL Syntax
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cluster-administration" title="Cluster administration" class="md-nav__link">
-    Cluster administration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graph-administration" title="Graph administration" class="md-nav__link">
-    Graph administration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#schema-mutation" title="Schema mutation" class="md-nav__link">
-    Schema mutation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-manipulation" title="Data manipulation" class="md-nav__link">
-    Data manipulation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graph-query" title="Graph query" class="md-nav__link">
-    Graph query
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -425,7 +316,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../how-to-contribute/" title="Contribute to Nebula" class="md-nav__link">
+    <a href="../cn-doc/cn-get-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-doc/cn-how-to-contribute/" title="Contribute to Nebula" class="md-nav__link">
       Contribute to Nebula
     </a>
   </li>
@@ -437,8 +340,63 @@
 
 
   <li class="md-nav__item">
-    <a href="../developer-documentation-style-guide/" title="Developer documentation style guide" class="md-nav__link">
-      Developer documentation style guide
+    <a href="../cn-doc/cn-contribute-to-documentation/" title="Contribute to Docs" class="md-nav__link">
+      Contribute to Docs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Language structure
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Language structure
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/Language_Structure/Comment_Syntax/" title="Comment syntax" class="md-nav__link">
+      Comment syntax
     </a>
   </li>
 
@@ -449,9 +407,386 @@
 
 
   <li class="md-nav__item">
-    <a href="../contribute-to-documentation/" title="Contribute to docs" class="md-nav__link">
-      Contribute to docs
+    <a href="../cn-manual-doc/Language_Structure/Identifier_Case_Sensitivity/" title="Identifier" class="md-nav__link">
+      Identifier
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/Language_Structure/Property_Reference/" title="Property reference" class="md-nav__link">
+      Property reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/Language_Structure/Schema_Object_Names/" title="Schema object names" class="md-nav__link">
+      Schema object names
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/Language_Structure/Statement_Composition/" title="Statement composition" class="md-nav__link">
+      Statement composition
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Statement syntax
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Statement syntax
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-1" type="checkbox" id="nav-2-2-1">
+    
+    <label class="md-nav__link" for="nav-2-2-1">
+      Data administration statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2-1">
+        Data administration statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-1-1" type="checkbox" id="nav-2-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-2-1-1">
+      Account management statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-2-1-1">
+        Account management statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Administration_Statements/cn_Account_Management_Statements/Drop_User_Syntax/" title="Drop user syntax" class="md-nav__link">
+      Drop user syntax
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-1-2" type="checkbox" id="nav-2-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-2-1-2">
+      Configuration statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-2-2-1-2">
+        Configuration statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Administration_Statements/cn_Configuration_Statements/cn_Variables_Syntax/" title="Variables syntax" class="md-nav__link">
+      Variables syntax
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-2" type="checkbox" id="nav-2-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2-2">
+      Data definition statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2-2">
+        Data definition statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/cn_Alter_Tag_Edge_Syntax/" title="Alter tag edge syntax" class="md-nav__link">
+      Alter tag edge syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Create_Space_Syntax/" title="Create space syntax" class="md-nav__link">
+      Create space syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Create_Tag_Edge_Syntax/" title="Create tag edge syntax" class="md-nav__link">
+      Create tag edge syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Drop_Edge_Syntax/" title="Drop edge syntax" class="md-nav__link">
+      Drop edge syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Drop_Space_Syntax/" title="Drop space syntax" class="md-nav__link">
+      Drop space syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Drop_Tag_Syntax/" title="Drop tage syntax" class="md-nav__link">
+      Drop tage syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/cn_Data_Definition_Statements/Show_Syntax/" title="Show syntax" class="md-nav__link">
+      Show syntax
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2-3" type="checkbox" id="nav-2-2-3">
+    
+    <label class="md-nav__link" for="nav-2-2-3">
+      Data manipulation statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-2-3">
+        Data manipulation statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/fetch_Syntax/" title="Fetch syntax" class="md-nav__link">
+      Fetch syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/Go_Syntax/" title="Go syntax" class="md-nav__link">
+      Go syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docs/cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/INSERT_EDGE_Syntax.md" title="Insert edge syntax" class="md-nav__link">
+      Insert edge syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/INSERT_VERTEX_Syntax/" title="Insert vertex syntax" class="md-nav__link">
+      Insert vertex syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/PIPE_Syntax/" title="Pipe syntax" class="md-nav__link">
+      Pipe syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/WHERE_Syntax/" title="Where syntax" class="md-nav__link">
+      Where syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cn-manual-doc/cn_Statement_Syntax/DATA_Manipulation_Statements/YIELD_Syntax/" title="Yield syntax" class="md-nav__link">
+      Yield syntax
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -477,7 +812,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -551,7 +886,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/vesoft-inc/nebula/edit/master/docs/nGQL-tutorial.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/vesoft-inc/nebula/edit/master/docs/nGQL-tutorial.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="ngql-query-language">nGQL Query Language<a class="headerlink" href="#ngql-query-language" title="Permanent link">&para;</a></h1>
@@ -599,13 +934,13 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <li>Show hosts</li>
 </ul>
 <div class="codehilite"><pre><span></span>SHOW HOSTS
-=============================
-|          Ip |  Port | Status |
-=============================
-| 192.168.8.5 | 65500 | online |
------------------------
+=================================
+| Ip          | Port  | Status  |
+=================================
+| 192.168.8.5 | 65500 | online  |
+---------------------------------
 | 192.168.8.1 | 65500 | offline |
------------------------
+---------------------------------
 </pre></div>
 
 
@@ -634,6 +969,7 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <th>USE</th>
 <th>DESCRIBE</th>
 <th>SHOW</th>
+<th>SHOW CREATE</th>
 </tr>
 </thead>
 <tbody>
@@ -644,6 +980,7 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <td>√</td>
 <td>v0.2</td>
 <td>√</td>
+<td>v0.2</td>
 </tr>
 </tbody>
 </table>
@@ -654,10 +991,19 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 </ul>
 <div class="codehilite"><pre><span></span>SHOW SPACES
 ================
-|         Name |
+| Name         |
 ================
 | myspace_test |
 ----------------
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>SHOW CREATE SPACES myspace_test
+====================================================================================
+| Space        | Create Space                                                      |
+====================================================================================
+| myspace_test | CREATE SPACE myspace_test (partition_num = 1, replica_factor = 1) |
+------------------------------------------------------------------------------------
 </pre></div>
 
 
@@ -698,6 +1044,7 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <th align="center">TTL</th>
 <th align="center">LOAD</th>
 <th align="center">DUMP</th>
+<th align="center">SHOW CREATE</th>
 </tr>
 </thead>
 <tbody>
@@ -711,6 +1058,7 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <td align="center">v0.3</td>
 <td align="center">v0.2</td>
 <td align="center">v0.3</td>
+<td align="center">v0.2</td>
 </tr>
 <tr>
 <td align="center">EDGE</td>
@@ -722,16 +1070,36 @@ Replace the $storage_ip and $storage_port here according to the local_ip and por
 <td align="center">v0.3</td>
 <td align="center">v0.2</td>
 <td align="center">v0.3</td>
+<td align="center">v0.2</td>
 </tr>
 </tbody>
 </table>
-<p>You can use CREATE, DROP, ALTER, DESCRIBE to create, drop, alter, view a schema.
+<p>You can use CREATE, DROP, ALTER, DESCRIBE, SHOW CREATE to create, drop, alter, view a schema.
 Following are some examples:</p>
 <div class="codehilite"><pre><span></span>CREATE TAG player(name string, age int);
 </pre></div>
 
 
 <div class="codehilite"><pre><span></span>DESCRIBE TAG player;
+==================
+| Field | Type   |
+==================
+| name  | string |
+------------------
+| age   | int    |
+------------------
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>SHOW CREATE TAG player;
+==========================================================================================
+| Tag    | Create Tag                                                                    |
+==========================================================================================
+| player | CREATE TAG player (
+  name string,
+  age int
+) ttl_duration = 0, ttl_col = &quot;&quot; |
+------------------------------------------------------------------------------------------
 </pre></div>
 
 
@@ -748,6 +1116,25 @@ Following are some examples:</p>
 
 
 <div class="codehilite"><pre><span></span>DESCRIBE EDGE serve;
+=====================
+| Field      | Type |
+=====================
+| start_year | int  |
+---------------------
+| end_year   | int  |
+---------------------
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>SHOW CREATE EDGE serve;
+=================================================================================================
+| Edge  | Create Edge                                                                           |
+=================================================================================================
+| serve | CREATE EDGE serve (
+  start_year int,
+  end_year int
+) ttl_duration = 0, ttl_col = &quot;&quot; |
+-------------------------------------------------------------------------------------------------
 </pre></div>
 
 
@@ -893,41 +1280,6 @@ you to follow these syntax norms:
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../get-started/" title="Quickstart" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Quickstart
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../how-to-contribute/" title="Contribute to Nebula" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Contribute to Nebula
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
@@ -959,6 +1311,23 @@ you to follow these syntax norms:
     </div>
     
       <script src="../assets/javascripts/application.39abc4af.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
