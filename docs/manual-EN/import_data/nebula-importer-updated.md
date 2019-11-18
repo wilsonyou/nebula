@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Nebula-importer is a tool developed by [Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose) to import csv files. This tool reads local csv files and writes the data into Nebula Graph. Nebula-importer supports importing CSV files with `go` or with `docker`.
+Nebula-importer is a tool developed by [Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose) to import csv files. This tool reads local csv files and writes the data into **Nebula Graph**. Nebula-importer supports importing CSV files with `go` or with `docker`.
 
 ## Prerequisites
 
@@ -14,11 +14,11 @@ Before importing CSV files into **Nebula Graph**, you must ensure the following 
 4. Edge types are created in **Nebula Graph**.
 5. All services in **Nebula Graph** are up and running.
 
-**Note**: The space selected in Nebula Graph is the place where your CSV files are imported. Tags are used to categorize your vertexes or nodes. Edge types are used to categorize your edges. If you do not know how to create spaces, tags or edges, you can refer to the **Build Your Own Graph** section in [`Quick Start`](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/1.overview/2.quick-start/1.get-started.md).
+**Note**: The space selected in **Nebula Graph** is the place where your CSV files are imported. Tags are used to categorize your vertexes or nodes. Edge types are used to categorize your edges. If you do not know how to create spaces, tags or edges, you can refer to the **Build Your Own Graph** section in [`Quick Start`](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/1.overview/2.quick-start/1.get-started.md).
 
 ## Preparing the Configuration File
 
-Nebula-importer reads a configuration file in `yaml` format to get all the required information about the connection to the Nebula Graph server, and the schema for tags and edges, etc.
+Nebula-importer reads a configuration file in `.yaml` format to get all the required information about the connection to the **Nebula Graph** server, and the schema for tags and edges, etc.
 
 For details about the `.yaml` file, you can refer to [`Example yaml`](example/example.yaml).
 
@@ -30,6 +30,7 @@ description: example
 clientSettings:
   concurrency: 4 # number of graph clients
   channelBufferSize: 128
+  space: test
   connection:
     user: user
     password: password
@@ -44,7 +45,6 @@ files:
       withHeader: false
       withLabel: false
     schema:
-      space: test
       type: edge
       edge:
         name: edge_name
@@ -60,7 +60,6 @@ files:
       withHeader: false
       withLabel: false
     schema:
-      space: test
       type: vertex
       vertex:
         tags:
@@ -68,6 +67,7 @@ files:
             props:
               - name: prop1
                 type: int
+                ignore: true
               - name: prop2
                 type: timestamp
           - name: tag2
@@ -91,6 +91,7 @@ The following table describes all the parameters in the `.yaml` configuration fi
 | clientSettings                               | The graph client settings                                                     | -              |
 | clientSettings.concurrency                   | The number of graph clients                                                   | 4              |
 | clientSettings.channelBufferSize             | The buffer size of client channels                                            | 128            |
+| clientSetting.space                          | The space name of all data to be inserted| ""
 | clientSettings.connection                    | The connection options of graph clients                                        | -              |
 | clientSettings.connection.user               | The username used to login Nebula Graph                                                                  | user           |
 | clientSettings.connection.password           | The password used to login Nebula Graph                                                                  | password       |
@@ -102,8 +103,7 @@ The following table describes all the parameters in the `.yaml` configuration fi
 | files[0].csv                                 | The options for CSV files                                                          | -              |
 | files[0].csv.withHeader                      | It indicates whether the csv file has header                                               | false          |
 | files[0].csv.withLabel                       | It indicates whether csv file has `+/-` label to represent **delete/insert** operation | false          |
-| files[0].schema                              | The schema definition for the file data                                      | -              |
-| files[0].schema.space                        | The space name created in Nebula Graph                                              | ""             |
+| files[0].schema                              | The schema definition for the file data                                      | -               |
 | files[0].schema.type                         | The schema type: vertex or edge                                               | vertex         |
 | files[0].schema.edge                         | The options for edges                                                              | -              |
 | files[0].schema.edge.name                    | The edge name in the selected space                                                  | ""             |
@@ -111,12 +111,14 @@ The following table describes all the parameters in the `.yaml` configuration fi
 | files[0].schema.edge.props                   | The properties of the edge                                                    | -              |
 | files[0].schema.edge.props[0].name           | The property name                                                             | ""             |
 | files[0].schema.edge.props[0].type           | The property type                                                             | ""             |
+|files[0].schema.edge.props[0].ignore          |Whether to ignore this property|                                             false|
 | files[0].schema.vertex                       | The options for vertex                                                            | -              |
 | files[0].schema.vertex.tags                  | The options for vertex tags                                                 | -              |
 | files[0].schema.vertex.tags[0].name          | The vertex tag name                                                           | ""             |
 | files[0].schema.vertex.tags[0].props         | The vertex tag's properties                                                   | -              |
 | files[0].schema.vertex.tags[0].props[0].name | The vertex tag's property name                                                | ""             |
 | files[0].schema.vertex.tags[0].props[0].type | The vertex tag's property type                                                | ""             |
+| files[0].schema.vertex.tags[0].props[0].ignore | Whether to ignore this vertex tag's property                     | false |
 | files[0].failDataPath                        | It indicates the file path for failed data                                                   | ""             |
 
 ## Preparing CSV Data
@@ -129,7 +131,7 @@ After your `.yaml` configuration file and all the required CSV data files are re
 
 ### Importing CSV Data with Go
 
-Nebula-importer depends on *golang 1.13*, so make sure you have installed `go` first. Before import data with `go` you have to set the environment variable for `go` as follows:
+Nebula-importer depends on *golang 1.13*, so ensure that you have installed `go` first. Before importing data with `go` you have to set the environment variable for `go` as follows:
 
 ```bash
 export PATH=$PATH:/usr/local/go/bin
@@ -164,7 +166,7 @@ go run importer.go --config /path/to/yaml/config/file
 
 ### Importing CSV Data with Docker
 
-With `docker`, You can import your local data to **Nebula Graph** with the following command:
+With `docker`, you can import your local data to **Nebula Graph** with the following command:
 
 ```bash
     docker run --rm -ti \
@@ -175,7 +177,7 @@ With `docker`, You can import your local data to **Nebula Graph** with the follo
     --config /root/{your-config-file}
 ```
 
-**Note**: You have to change your direcotry to the directory where your `.yaml`configuration is stored. For example, if your `config.yaml` file is in the /home/nebula/ directory, it means {your-config-file} = /home/nebula/config.yaml; if your `csv` file is in the /home/nebula/ directory, it means {your-csv-data-dir} = /home/nebula/.
+**Note**: You have to change your directory to the directory where your `.yaml`configuration file is stored. For example, if your `config.yaml` file is in the /home/nebula/ directory, it means {your-config-file} = /home/nebula/config.yaml; if your `csv` file is in the /home/nebula/ directory, it means {your-csv-data-dir} = /home/nebula/.
 
 ## CSV Data Example
 
@@ -198,7 +200,7 @@ With label:
 - `+`: Insert
 - `-`: Delete
 
-In labeled `-` row, only need the vid which you want to delete.
+In labeled `-` row, only need the VID which you want to delete.
 
 ```csv
 +,1,2,this is a property string
@@ -208,7 +210,7 @@ In labeled `-` row, only need the vid which you want to delete.
 
 #### Edge
 
-Edge csv data file format is like the vertex description. But the difference with above vertex vid is source vertex vid, destination vertex vid and edge ranking.
+The edge csv data file format is similar to the vertex description. But the difference from above vertex VID is source vertex VID, destination vertex VID and edge ranking.
 
 Without label column, `src_vid`, `dst_vid` and `ranking` always are first three columns in csv data file.
 
@@ -233,7 +235,7 @@ With label:
 
 ### With Header Line
 
-This feature has not been supported now. Please remove the header from your csv data file at present.
+This feature is not supported now. Please remove the header from your csv data file at present.
 
 #### Edges
 
@@ -242,7 +244,7 @@ _src,_dst,_ranking,prop1,prop2
 ...
 ```
 
-`_src` and `_dst` represent edge source and destination vertex id. `_ranking` column is value of edge ranking.
+`_src` and `_dst` represent edge source and destination vertex ID. `_ranking` column is value of edge ranking.
 
 #### Vertexes
 
@@ -251,7 +253,7 @@ _vid,tag1.prop1,tag2.prop2,tag1.prop3,tag2.prop4
 ...
 ```
 
-`_vid` column represent the global unique vertex id.
+`_vid` column represents the global unique vertex ID.
 
 ### Log
 
@@ -259,7 +261,7 @@ All logs info will output to your `logPath` file in configuration.
 
 ## Example
 
-The following example shows you how to import CSV data to **Nebula Graph** with Nebula-importer. In this example, Nebula Graph is installed with `docker` and `docker compose`. You can walk through the example by the following steps:
+The following example shows you how to import CSV data to **Nebula Graph** with Nebula-importer. In this example, **Nebula Graph** is installed with `docker` and `docker compose`. We will walk you through the example by the following steps:
 
 1. [Start your Nebula Graph services](#starting-nebula-graph-services).
 2. [Create the schema for tags and edges](#creating-the-schema-for-tags-and-edges).
@@ -269,9 +271,9 @@ The following example shows you how to import CSV data to **Nebula Graph** with 
 
 ### Starting Nebula Graph Services
 
-You can start your Nebula Graph services by the following steps:
+You can start your **Nebula Graph** services by the following steps:
 
-1. On a command line interface, go to the nebula-docker-compose directory.
+1. On a command line interface, go to the `nebula-docker-compose` directory.
 2. Execute the following command to start nebula services:
 
 ```bash
@@ -284,7 +286,7 @@ sudo docker-compose up -d
 sudo docker-compose ps
 ```
 
-4. Execute the following command to pull the Nebula Graph image:
+4. Execute the following command to pull the **Nebula Graph** image:
 
 ```bash
 sudo docker pull vesoft/nebula-console:nightly
@@ -296,7 +298,7 @@ sudo docker pull vesoft/nebula-console:nightly
 sudo docker run --rm -ti --network=host vesoft/nebula-console:nightly --addr=127.0.0.1 --port=32868
 ```
 
-**Note**: You must make sure the ip and port are correct.
+**Note**: You must make sure the IP address and the port number are correct.
 
 ### Creating the Schema for Tags and Edges
 
@@ -304,11 +306,11 @@ Before you can input your schema, you must create a space and use it.
 In this example, we create two tags and one edge type with the following commands:
 
 ```bash
-CREATE TAG directors (name string, gender string, age int)
+CREATE TAG player (name string, age int)
 
-CREATE TAG stars (name string, gender string, age int)
+CREATE TAG team (name string)
 
-CREATE EDGE chose (rating int)
+CREATE EDGE serve(start_year int, end_year int)
 ```
 
 ### Preparing Your Configuration File
@@ -340,12 +342,14 @@ files:
     schema:
       type: edge
       edge:
-        name: chose
+        name: serve
         withRanking: true
         props:
-          - name: rating
-            type: string
-  - path: /home/nebula/directors.csv
+          - name: start_year
+            type: int
+          - name: end_year
+            type: int  
+  - path: /home/nebula/player.csv
     failDataPath: ./err/vertex.csv
     batchSize: 100
     type: csv
@@ -356,16 +360,14 @@ files:
       type: vertex
       vertex:
         tags:
-          - name: directors
+          - name: player
             props:
               - name: name
                 type: string
                 ignore: true
-              - name: gender
-                type: string
               - name: age
                 type: int  
-    - path: /home/nebula/stars.csv
+    - path: /home/nebula/team.csv
     failDataPath: ./err/vertex.csv
     batchSize: 100
     type: csv
@@ -376,69 +378,63 @@ files:
       type: vertex
       vertex:
         tags:
-          - name: directors
+          - name: team
             props:
               - name: name
                 type: string
                 ignore: true
-              - name: gender
-                type: string
-              - name: age
-                type: int
 
 ```
 
-**Note**: In the above configuration file, you must change the ip and port to yours.
+**Note**: In the above configuration file, you must change the IP address and the port number to yours.
 
 ### Preparing the CSV Data
 
 In this example we prepare three CSV data files, one for the edge and two for vertexes.
 
-The data in the directors CSV file is as follows:
+The data in the player CSV file is as follows:
 
 ```csv
-100,Hanks,male,55
-101,Tom,male,81
-102,Jim,male,42
-103,Tan,male,45
-104,Powell,male,64
-105,Aval,female,49
-106,Joe,female,60
-107,Juli,female,43
-108,Eve,female,29
+100,Tim,42
+101,Tony,36
+102,LaMarcus,33
+103,Rudy,32
+104,Marco,32
+105,Danny,31
+106,Kyle,25
+107,Aron,32
+108,Boris,36
 ```
 
-The data in the stars CSV file is as follows:
+The data in the team CSV file is as follows:
 
 ```csv
 
-200,Jack,male,17
-201,Mike,male,18
-202,Michael,male,16
-203,Nelson,male,19
-204,Kally,female,18
-205,Jane,female,17
-206,Joy,female,21
-207,Tina,female,19
-208,Lily,female,20
+200,Warriors
+201,Nuggets
+202,Rockets
+203,Trail
+204,Spurs
+205,Thunders
+206,Jazz
+207,Clippers
+208,Kings
 ```
 
 The data in the edge CSV file is as follows:
 
 ```csv
-100,200,good
-100,201,good
-100,202,wonderful
-101,203,excellent
-101,200,excellent
-102,201,good
-103,204,fantastic
-104,205,good
-104,202,wonderful
+100,200,1997,2016
+101,201,1999,2018
+102,203,2006,2015
+102,204,2015,2019
+103,204,2017,2019
+104,200,2007,2009
+
 
 ```
 
-**Note**: In the above files, the first column is the vertex id and the other fields are in consistent with the `.yaml` configuration file.
+**Note**: In the above files, the first column is the vertex ID and the other fields are in consistent with the `.yaml` configuration file.
 
 ### Importing the CSV Data
 
