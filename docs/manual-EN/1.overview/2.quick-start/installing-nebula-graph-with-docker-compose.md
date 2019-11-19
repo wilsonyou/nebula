@@ -29,19 +29,19 @@ You can install the latest version of `Docker Engine` by the following steps:
 
 1. Uninstall the old versions of `Docker`.
 
-```$
+```bash
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 2. Update the `apt` package index.
 
-```$
+```bash
 sudo apt-get update
 ```
 
 3. Install packages to allow `apt` to use a repository over HTTPS.
 
-``` $
+``` bash
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -51,19 +51,19 @@ sudo apt-get install \
     ```
 4. Add Docker’s official GPG key:
 
-```$
+```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 5. Verify that you now have the key with the fingerprint `9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88`, by searching for the last 8 characters of the fingerprint.
 
-```$
+```bash
 sudo apt-key fingerprint 0EBFCD88
 ```
 
 6. Use the following command to set up the `stable` repository.
 
-```$
+```bash
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -72,23 +72,23 @@ sudo add-apt-repository \
 
 7. Update the `apt` package index.
 
-```$
+```bash
 sudo apt-get update
 ```
 
 8. Install the latest version of `Docker` and `containerd`.
 
-```$
+```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 9. Verify that `Docker` is installed correctly by running the `hello-world` image.
 
-```$
+```bash
 sudo docker run hello-world
 ```
 
-**Note**: 
+**Note**:
 
 1. After entering the `sudo docker run hello-world` command, if the `Hello from Docker` message is displayed, it indicates that `Docker Engine` is installed successfully.
 
@@ -102,13 +102,13 @@ You can install `Docker Compose` by the following steps:
 
 1. Download the current stable release of `Docker Compose`.
 
-```$
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 2. Apply executable permissions to the binary.
 
-```$
+```bash
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -126,31 +126,31 @@ You can install **Nebula Graph** and get it up and running by the following step
 
 1. Run a container in docker.
 
-```$
+```bash
 sudo docker run -it vesoft/nebula-graph:nightly /bin/bash
 ```
 
 2. Change your current directory to the `nebula` directory.
 
-```$
+```bash
 cd /usr/local/nebula/
 ```
 
 3. Start meta service, storage service and graph service.
 
-```$
+```bash
 scripts/nebula.service start all
 ```
 
 4. Check the status of **Nebula Graph** services.
 
-```$
+```bash
 scripts/nebula.service status all
 ```
 
 5. Connect to the **Nebula Graph** services.
 
-```$
+```bash
 bin/nebula -u=user -p=password
 ```
 
