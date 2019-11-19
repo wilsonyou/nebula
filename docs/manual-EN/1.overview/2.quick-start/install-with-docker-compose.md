@@ -39,7 +39,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get update
 ```
 
-3. Install packages to allow `apt` to use a repository over HTTPS.
+3. Install packages to allow `apt` to use a repository over HTTPS. When your are prompted, press `y`.
 
 ``` bash
 sudo apt-get install \
@@ -76,7 +76,7 @@ sudo add-apt-repository \
 sudo apt-get update
 ```
 
-8. Install the latest version of `Docker` and `containerd`.
+8. Install the latest version of `Docker` and `containerd`. When you are prompted, press `y`.
 
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io
